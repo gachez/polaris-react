@@ -170,7 +170,7 @@ export const TopBar: React.FunctionComponent<TopBarProps> & {
       {contextMarkup}
       <div className={styles.Contents}>
         <div className={styles.SearchField}>{searchMarkup}</div>
-        <div className={styles.SecondaryMenu}>{secondaryMenu}</div>
+        <div>{secondaryMenu}</div>
         {userMenu}
       </div>
       {scrollListenerMarkup}

@@ -126,9 +126,3 @@ $context-control-expand-after: 1400px;
     margin-left: 0;
   }
 }
-
-.SecondaryMenu {
-  @include breakpoint-before(layout-width(page-with-nav), false) {
-    display: none;
-  }
-}
