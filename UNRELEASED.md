@@ -6,6 +6,8 @@
 
 ### Enhancements
 
+- Updated `TopBar` component to show `secondaryMenu` on small screens ([#2913](https://github.com/Shopify/polaris-react/pull/2913))
+
 ### Bug fixes
 
 ### Documentation
