@@ -149,11 +149,17 @@ Use to provide structure for the top of an application. Style the top bar compon
 ```jsx
 function TopBarExample() {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isSecondaryMenuOpen, setIsSecondaryMenuOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchValue, setSearchValue] = useState('');
 
   const toggleIsUserMenuOpen = useCallback(
     () => setIsUserMenuOpen((isUserMenuOpen) => !isUserMenuOpen),
+    [],
+  );
+
+  const toggleIsSecondaryMenuOpen = useCallback(
+    () => setIsSecondaryMenuOpen((isSecondaryMenuOpen) => !isSecondaryMenuOpen),
     [],
   );
 
@@ -224,10 +230,31 @@ function TopBarExample() {
     />
   );
 
+  const secondaryMenuMarkup = (
+    <TopBar.Menu
+      activatorContent={
+        <Icon
+          accessibilityLabel="Secondary menu"
+          source={QuestionMarkMajorTwotone}
+          color="white"
+        />
+      }
+      open={isSecondaryMenuOpen}
+      onOpen={toggleIsSecondaryMenuOpen}
+      onClose={toggleIsSecondaryMenuOpen}
+      actions={[
+        {
+          items: [{content: 'Community forums'}],
+        },
+      ]}
+    />
+  );
+
   const topBarMarkup = (
     <TopBar
       showNavigationToggle
       userMenu={userMenuMarkup}
+      secondaryMenu={secondaryMenuMarkup}
       searchResultsVisible={isSearchActive}
       searchField={searchFieldMarkup}
       searchResults={searchResultsMarkup}
